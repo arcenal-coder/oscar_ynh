@@ -1,0 +1,12 @@
+.venv/
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store
+data/
+test-results/
+playwright-report/
+.ruff_cache/
+.manifest.v2.schema.json
+.tests.v1.schema.json
+dist/

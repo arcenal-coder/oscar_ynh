@@ -1,0 +1,15 @@
+{
+  "name": "oscar-mission-zero-accident",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "format:check": "prettier --check web package.json playwright.config.js tests/browser",
+    "check": "node --check web/js/game.js && node --check web/js/art.js && node --check web/js/content.js && node --check web/js/app.js",
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.61.1",
+    "prettier": "3.8.3"
+  }
+}

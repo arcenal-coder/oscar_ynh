@@ -1,0 +1,51 @@
+name: Verify preview
+on:
+  push:
+    branches: [preview]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install isolated test dependencies
+        run: |
+          python -m venv .venv
+          .venv/bin/python -m pip install -r requirements-dev.txt
+          npm ci
+      - name: Check source and package
+        run: |
+          npm run format:check
+          npm run check
+          .venv/bin/ruff check server tests/test_api.py tools
+          .venv/bin/shellcheck -e SC1091 scripts/_common.sh scripts/install scripts/upgrade scripts/remove scripts/backup scripts/restore
+          .venv/bin/python -m compileall -q server tools
+          .venv/bin/python tools/check_package.py
+      - name: Test API and real browser journey
+        run: |
+          .venv/bin/python -m unittest discover -s tests -p 'test_*.py' -v
+          npx playwright install --with-deps chromium
+          npx playwright test --project=chromium
+      - name: Build and verify delivery
+        run: |
+          .venv/bin/python tools/build_release.py
+          .venv/bin/python tools/check_release.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: oscar-preview-delivery
+          path: |
+            dist/
+            test-results/
+          if-no-files-found: warn

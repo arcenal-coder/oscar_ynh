@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#102e3c" />
+    <meta
+      name="description"
+      content="Une courte mission avec Oscar pour découvrir dix bons réflexes de prévention. Un jeu HSE gratuit, sans compte, sur ordinateur et mobile."
+    />
+    <meta property="og:title" content="Oscar, mission zéro accident" />
+    <meta
+      property="og:description"
+      content="Deux sites. Dix dangers. Une mission : faire avancer la prévention. À vous de jouer !"
+    />
+    <meta property="og:type" content="website" />
+    <title>Oscar — Mission zéro accident · ONYX</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Aller au contenu</a>
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="ONYX — accueil"
+        ><span class="brand-mark" aria-hidden="true">◈</span> ONYX<span
+          class="brand-separator"
+        ></span
+        ><span class="brand-caption">La prévention en action</span></a
+      >
+      <span class="edition"><span></span> MINI-JEU HSE · ÉDITION 01</span>
+    </header>
+    <main id="main">
+      <section id="home" class="home screen" aria-labelledby="home-title">
+        <div class="intro">
+          <div class="eyebrow">
+            <span class="dash"></span> UNE MISSION QUI COMPTE
+          </div>
+          <h1 id="home-title">
+            Petit casque.<br />Grande <span>mission.</span>
+          </h1>
+          <p class="game-title">Oscar, mission zéro accident</p>
+          <p class="lead">
+            Un site plus sûr commence par un bon réflexe.<br />Accompagnez
+            Oscar, repérez les dangers et faites<br class="desktop-break" />
+            avancer la prévention.
+          </p>
+          <div class="start-row">
+            <button id="play" class="button primary">
+              Jouer la mission <span aria-hidden="true">↗</span></button
+            ><span class="duration"
+              >3–5 minutes<br /><strong
+                >Sans compte. Sans pression.</strong
+              ></span
+            >
+          </div>
+          <div class="home-facts">
+            <span><b>02</b> sites à explorer</span
+            ><span><b>10</b> dangers à sécuriser</span
+            ><span><b>100 %</b> prévention</span>
+          </div>
+        </div>
+        <div class="hero-art">
+          <canvas
+            id="hero"
+            width="850"
+            height="780"
+            role="img"
+            aria-label="Oscar, casque jaune et tenue orange, devant un site industriel aux garde-corps jaunes."
+          ></canvas>
+          <div class="mission-label">
+            <span class="status-icon">✓</span>
+            <div>
+              Votre équipement est prêt.<br /><strong
+                >À vous de faire la différence.</strong
+              >
+            </div>
+          </div>
+          <div class="art-caption">
+            OSCAR / AGENT DE PRÉVENTION <span>01 — RAFFINERIE</span>
+          </div>
+        </div>
+        <div class="how-strip">
+          <span class="strip-title">VOTRE FEUILLE DE ROUTE</span
+          ><span><i>01</i> Repérez</span><span class="strip-arrow">→</span
+          ><span><i>02</i> Sécurisez</span><span class="strip-arrow">→</span
+          ><span><i>03</i> Partagez les bons réflexes</span>
+        </div>
+      </section>
+
+      <section
+        id="game-screen"
+        class="screen hidden"
+        aria-label="Mission en cours"
+      >
+        <div id="game-shell" class="game-shell">
+          <canvas
+            id="game"
+            width="1280"
+            height="720"
+            tabindex="0"
+            aria-label="Jeu de plateforme. Flèches pour se déplacer, espace pour sauter, E pour sécuriser. Les informations de mission sont disponibles dans les boutons et le bandeau."
+          ></canvas>
+          <div class="game-hud">
+            <div class="level-badge">
+              <span id="level-number">MISSION 01 / 02</span
+              ><strong id="level-name">Raffinerie</strong
+              ><small id="counter">0 / 5 dangers sécurisés</small>
+            </div>
+            <div class="hud-right">
+              <span id="clock" aria-label="Temps de jeu">0 min 00 s</span
+              ><button
+                id="pause"
+                class="icon-button"
+                aria-label="Mettre en pause"
+              >
+                Ⅱ
+              </button>
+            </div>
+          </div>
+          <div id="world-caption" class="world-caption">
+            Une tournée, cinq bons réflexes.
+          </div>
+          <div id="interaction" class="interaction hidden">
+            <span id="danger-title"></span
+            ><button id="secure" class="button primary">
+              <kbd>E</kbd> <span id="action-text">Sécuriser</span>
+            </button>
+          </div>
+          <div id="route-hint" class="route-hint">
+            Suivez les flèches · approchez-vous des dangers signalés
+            <span>→</span>
+          </div>
+          <div class="keyboard-guide">
+            <kbd>←</kbd><kbd>→</kbd> avancer <kbd>Espace</kbd> sauter
+            <kbd>E</kbd> agir
+          </div>
+          <div
+            id="touch-controls"
+            class="touch-controls"
+            aria-label="Commandes tactiles"
+          >
+            <div>
+              <button data-control="left" aria-label="Aller à gauche">←</button
+              ><button data-control="right" aria-label="Aller à droite">
+                →
+              </button>
+            </div>
+            <button data-control="jump" aria-label="Sauter">↥</button>
+          </div>
+          <div id="orientation" class="orientation hidden" role="status">
+            <span>↻</span>
+            <h2>Un peu de recul ?</h2>
+            <p>
+              Tournez votre téléphone en paysage<br />pour poursuivre la
+              mission.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="summary"
+        class="screen summary hidden"
+        aria-labelledby="summary-title"
+      >
+        <div class="eyebrow">
+          <span class="dash"></span> CHAQUE BON RÉFLEXE COMPTE
+        </div>
+        <div class="summary-heading">
+          <div>
+            <p id="summary-kicker" class="kicker">MISSION ACCOMPLIE</p>
+            <h1 id="summary-title" tabindex="-1">Site sécurisé.</h1>
+            <p id="summary-message" class="lead"></p>
+          </div>
+          <div class="seal" aria-hidden="true">
+            ✓<small>PRÉVENTION<br />EN ACTION</small>
+          </div>
+        </div>
+        <div id="stats" class="stats"></div>
+        <div class="advice">
+          <span aria-hidden="true">✦</span>
+          <p id="advice"></p>
+        </div>
+        <div id="level-actions">
+          <button id="next-level" class="button primary">
+            Continuer à l’usine <span>→</span>
+          </button>
+        </div>
+        <div id="final-actions" class="hidden">
+          <div class="final-grid">
+            <section class="panel">
+              <p class="kicker">LE TABLEAU D’HONNEUR</p>
+              <h2>Laissez votre signature.</h2>
+              <p>Trois lettres, un bon exemple. Aucun classement de vitesse.</p>
+              <form id="score-form">
+                <label for="initials">Vos trois lettres</label>
+                <div class="form-row">
+                  <input
+                    id="initials"
+                    name="initials"
+                    maxlength="3"
+                    minlength="3"
+                    pattern="[A-Za-z]{3}"
+                    autocomplete="off"
+                    autocapitalize="characters"
+                    aria-describedby="score-privacy"
+                    placeholder="ABC"
+                    required
+                  /><button class="button dark" type="submit">
+                    Inscrire ma mission
+                  </button>
+                </div>
+              </form>
+              <p id="score-status" role="status"></p>
+              <p id="score-privacy" class="fine-print">
+                Facultatif. Seules les 20 dernières inscriptions restent dans le
+                tableau.
+                <button class="text-button" id="privacy-open">Détails</button>
+              </p>
+              <ol
+                id="leaderboard"
+                class="leaderboard"
+                aria-label="Dernières missions enregistrées"
+              ></ol>
+              <button id="refresh-board" class="text-button">
+                Actualiser le tableau
+              </button>
+            </section>
+            <section class="panel share-panel">
+              <p class="kicker">LES BONS RÉFLEXES SE PARTAGENT</p>
+              <h2>À votre réseau de jouer.</h2>
+              <p id="share-text"></p>
+              <div class="share-buttons">
+                <button id="copy-share" class="button light">
+                  Copier le texte</button
+                ><a
+                  id="linkedin"
+                  class="button linkedin"
+                  href="https://www.linkedin.com/sharing/share-offsite/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Partager sur LinkedIn ↗</a
+                >
+              </div>
+              <p id="copy-status" role="status"></p>
+            </section>
+          </div>
+          <button id="replay" class="button primary">
+            Rejouer la mission <span>↻</span>
+          </button>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <span
+        >ONYX <span class="footer-dot">/</span> La sécurité se construit
+        ensemble.</span
+      ><span>Un jeu de sensibilisation, pas une formation habilitante.</span>
+    </footer>
+
+    <dialog id="modal" aria-labelledby="modal-title">
+      <div class="modal-symbol" id="modal-symbol">✦</div>
+      <p id="modal-kicker" class="kicker"></p>
+      <h2 id="modal-title"></h2>
+      <div id="modal-body"></div>
+      <button id="modal-confirm" class="button primary">C’est parti →</button>
+    </dialog>
+    <script type="module" src="./js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+#!/bin/bash
+source ../settings/scripts/_common.sh
+source /usr/share/yunohost/helpers
+: "${app:?}" "${install_dir:?}" "${data_dir:?}" "${domain:?}"
+
+ynh_restore "$install_dir"
+ynh_restore "$data_dir/.secret"
+# The service is not started yet. Discard obsolete WAL files before restoring the snapshot.
+if [ -f "$data_dir/scores.sqlite3-wal" ]; then
+    ynh_safe_rm "$data_dir/scores.sqlite3-wal"
+fi
+if [ -f "$data_dir/scores.sqlite3-shm" ]; then
+    ynh_safe_rm "$data_dir/scores.sqlite3-shm"
+fi
+install -m 600 ./scores.sqlite3 "$data_dir/scores.sqlite3"
+chown -R "$app:$app" "$data_dir"
+chmod 700 "$data_dir"
+chown -R "$app:www-data" "$install_dir"
+ynh_restore "/etc/nginx/conf.d/$domain.d/$app.conf"
+ynh_restore "/etc/systemd/system/$app.service"
+systemctl enable "$app.service" --quiet
+yunohost service add "$app" --description="Tableau de prévention Oscar"
+ynh_systemctl --service="$app" --action=start
+ynh_systemctl --service=nginx --action=reload

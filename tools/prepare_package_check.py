@@ -1,0 +1,20 @@
+"""Use a verified HTTPS preflight on CI runners where ICMP is blocked.
+
+Only the connectivity probe changes; no lifecycle test or result is altered.
+Fail closed if the upstream implementation no longer matches.
+"""
+
+import sys
+from pathlib import Path
+
+path = Path(sys.argv[1]) / "lib/common.sh"
+source = path.read_text()
+original = "    ping -q -c 2 yunohost.org > /dev/null 2>&1 \\\n"
+replacement = (
+    "    curl --fail --silent --show-error --proto '=https' --max-time 20 "
+    "https://repo.yunohost.org/incus/streams/v1/index.json > /dev/null 2>&1 \\\n"
+    "    || ping -q -c 2 yunohost.org > /dev/null 2>&1 \\\n"
+)
+if source.count(original) != 1:
+    raise SystemExit("Préflight amont non reconnu ; aucun test contourné.")
+path.write_text(source.replace(original, replacement))

@@ -1,0 +1,13 @@
+#!/bin/bash
+source ../settings/scripts/_common.sh
+source /usr/share/yunohost/helpers
+: "${app:?}" "${install_dir:?}" "${data_dir:?}" "${domain:?}"
+
+ynh_backup "$install_dir"
+ynh_backup "/etc/nginx/conf.d/$domain.d/$app.conf"
+ynh_backup "/etc/systemd/system/$app.service"
+# SQLite's backup API includes committed WAL pages without stopping the game.
+# Like a SQL dump, this file in the backup working directory is archived by core.
+# flask must import from install_dir, not the backup working directory.
+PYTHONPATH="$install_dir" OSCAR_DATA_DIR="$data_dir" "$install_dir/venv/bin/flask" --app server.app:create_app backup-db "$PWD/scores.sqlite3"
+ynh_backup "$data_dir/.secret"
