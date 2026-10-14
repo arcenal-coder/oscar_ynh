@@ -14,9 +14,3 @@ oscar_install_files() {
     chown -R "$app:$app" "$data_dir"
     chmod 700 "$data_dir"
 }
-
-oscar_configure() {
-    ynh_config_add_nginx
-    ynh_config_add_systemd
-    yunohost service add "$app" --description="Tableau de prévention Oscar"
-}

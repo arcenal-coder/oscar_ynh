@@ -1,7 +1,6 @@
 test_format = 1.0
 
 [default]
-    test_upgrade_from = []
     args.path = "/oscar"
 
     [default.curl_tests]
@@ -9,6 +8,3 @@ test_format = 1.0
         home.expect_content = "Petit casque"
         api.path = "/api/health"
         api.expect_content = "ok"
-
-[root]
-    args.path = "/"

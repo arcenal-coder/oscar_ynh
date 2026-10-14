@@ -29,7 +29,7 @@ jobs:
           npm run format:check
           npm run check
           .venv/bin/ruff check server tests/test_api.py tools
-          .venv/bin/shellcheck -e SC1091 scripts/_common.sh scripts/install scripts/upgrade scripts/remove scripts/backup scripts/restore
+          .venv/bin/shellcheck -e SC1091 scripts/_common.sh scripts/install scripts/upgrade scripts/remove scripts/backup scripts/restore scripts/change_url
           .venv/bin/python -m compileall -q server tools
           .venv/bin/python tools/check_package.py
       - name: Test API and real browser journey

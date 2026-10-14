@@ -5,6 +5,8 @@ source /usr/share/yunohost/helpers
 
 ynh_script_progression "Installation du jeu et du tableau..."
 oscar_install_files
-oscar_configure
+ynh_config_add_nginx
+ynh_config_add_systemd
+yunohost service add "$app" --description="Tableau de prévention Oscar"
 ynh_systemctl --service="$app" --action=start
 ynh_systemctl --service=nginx --action=reload
