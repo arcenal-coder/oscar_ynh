@@ -1,5 +1,15 @@
 name: Verify YunoHost lifecycle
 on:
+  push:
+    branches: [preview]
+    paths:
+      - '.github/workflows/yunohost.yml'
+      - 'manifest.toml'
+      - 'tests.toml'
+      - 'scripts/**'
+      - 'conf/**'
+      - 'server/**'
+      - 'requirements.txt'
   workflow_dispatch:
 permissions:
   contents: read
