@@ -4,15 +4,16 @@ Statut : ACTUEL
 
 ## Lot actif
 
-- V1 applicative réalisée ; publication GitHub et catalogue preview demandée.
-- Lots 1 à 5 réalisés sous mandat d’autonomie ; lot 6 livré localement, recette
-  distante BLOQUÉE faute d’accès YunoHost. Synthèse : `lots/v1.md`.
+- V1 publiée sur GitHub et dans ARCenal Store preview ; qualification YunoHost CI réussie.
+- Lots réalisés et livraison preview disponible ; installation sur le serveur du
+  client et réception humaine non exécutées. Synthèse : `lots/v1.md`.
 
 ## Dernière étape validée
 
 - 14 octobre 2026 : carte blanche du client pour atteindre la V1 sans intervention.
 - Architecture et cahier des charges validés auparavant ; contenu et réalisation
   arrêtés par le fournisseur sous ce mandat, sans simuler une réception humaine.
+- Publication GitHub preview explicitement demandée ; effectuée le 15 octobre 2026.
 
 ## Fichiers importants modifiés
 
@@ -36,6 +37,11 @@ Statut : ACTUEL
 - Manifeste conforme au schéma officiel ; audits npm/Python sans vulnérabilité connue.
 - Archives : empreintes, intégrité et démarrage de la livraison extraite vérifiés.
 - Détails et portée : `docs/recette.md`, revue séparée dans `docs/revue.md`.
+- GitHub : contrôles applicatifs et archives verts, run `38622654281`.
+- YunoHost 12.1.41.2 amd64 / Incus : installation racine/sous-chemin/multi-instance,
+  retrait/réinstallation, backup/restore, upgrade et changement d’URL réussis,
+  run `38622654245`. Rapport : `TEST_REPORT.md`.
+- Catalogue : 16 tests réussis ; PR #10 fusionnée, promotion sélective Oscar verte.
 
 ## Résultats
 
@@ -44,11 +50,18 @@ Statut : ACTUEL
 - Client : 71 232 octets ; ZIP statique : 21 785 octets ; aucun asset externe.
 - Archives dans `dist/`, générées par `tools/build_release.py`, sans données/secrets.
 - Prévisualisation locale Gunicorn sur `http://127.0.0.1:18764`, données isolées
-  dans `data/preview/` ; aucune publication sur Internet.
+  dans `data/preview/` (service temporaire, disponibilité à recontrôler à la reprise).
+- Dépôt public : `https://github.com/arcenal-coder/oscar_ynh`, branche `preview`.
+- Tag : `v1.0.0-preview.1`, paquet `1.0.0~ynh1`, SHA installable
+  `ac3c74ab2bdb8d8904062e7a268e8d08e33a9067`.
+- Catalogue publié : PR `arcenal-systeme-catalogue#10`, fusion
+  `6c6e70f111b28dac94080928f69eef35e6972288`, flux raw preview relu et conforme.
+- Archives vérifiées attachées à la prérelease GitHub ; niveau amont 0 conservé.
 
 ## Blocages
 
-- BLOQUÉ : cycle de vie réel YunoHost, accès/domaine/version serveur non fournis.
+- Aucun blocage de publication. Instance client non installée, accès non fourni ;
+  cycle de vie déjà qualifié sur instance CI, sans prétendre à une recette client.
 - NON MESURÉ : panel humain de trois débutants (AC-13), appareils physiques,
   Edge natif et publication LinkedIn réelle.
 - Rétention des sauvegardes/journaux dépendante de la politique du serveur.
@@ -65,5 +78,5 @@ Statut : ACTUEL
 
 ## Prochaine action
 
-- Publier `arcenal-coder/oscar_ynh` branche preview, vérifier les contrôles GitHub
-  et référencer la révision vérifiée dans le catalogue preview d’ARCenal Store.
+- Candidate disponible : ARCenal Store → Prévisualisation → Actualiser le catalogue
+  → « Oscar, mission HSE ». Réception sur l’instance client selon accès disponible.

@@ -105,9 +105,9 @@ inscriptions peuvent réapparaître. Documenter ce comportement et la rétention
 
 ## Vérifications et preuves
 
-Les contrôles applicatifs sont exécutés localement ; les preuves et limites exactes
-sont dans `docs/recette.md`. Les vérifications de cycle de vie YunoHost ci-dessous
-restent à exécuter sur une instance réelle.
+Les contrôles applicatifs sont exécutés localement et sur GitHub. Le cycle de vie
+est vérifié sur YunoHost 12.1.41.2 amd64 dans Incus ; les preuves et limites exactes
+sont dans `TEST_REPORT.md` et `docs/recette.md`. Instance client non installée.
 
 - Navigateurs cibles, clavier, tactile, pause et orientation.
 - Tableau identique sur deux appareils ; vingt-et-unième inscription évincant
@@ -121,7 +121,7 @@ restent à exécuter sur une instance réelle.
 ## Points ouverts
 
 - Domaine, chemin, version YunoHost et environnement de test disponible.
-- Validation du cycle de vie du paquet et de la configuration effective d’exploitation.
+- Configuration effective et réception de l’instance personnelle du client.
 - Rétention des sauvegardes et information associée aux inscriptions.
 - Recette sur téléphones physiques et mesure humaine de durée de découverte.
 

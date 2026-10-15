@@ -77,7 +77,7 @@ Les décisions structurantes validées sont ajoutées ci-dessous. Ne pas enregis
   licence open source choisie au nom du client ; redistribution à décider séparément.
 - ACTUEL — Sauvegarde cohérente via API SQLite, clé incluse ; rétention des archives
   gérée par le serveur YunoHost, explicitée dans la notice et le README.
-- ACTUEL — Livraison locale et archives versionnées ; installation distante non
+- HISTORIQUE — Livraison locale et archives versionnées ; installation distante non
   réalisée, faute d’accès serveur. Aucun commit ni publication Git effectué.
 - ACTUEL — Budget client de 100 Kio non compressés, hors réponses du tableau ;
   mesuré à 71 232 octets. Rendu lourd suspendu pendant les pauses et les bilans.
@@ -100,7 +100,22 @@ Les décisions structurantes validées sont ajoutées ci-dessous. Ne pas enregis
 - ACTUEL — Contrôles applicatifs et cycle de vie YunoHost exécutables dans GitHub
   Actions, environnement Incus isolé ; aucune installation sur serveur client.
 
-## À REVALIDER — Éléments d’exploitation restants
+## 15 octobre 2026 — Preview publiée
+
+- ACTUEL — Dépôt public `arcenal-coder/oscar_ynh`, branche `preview` ; prérelease
+  `v1.0.0-preview.1` et paquet `1.0.0~ynh1` sur le SHA testé
+  `ac3c74ab2bdb8d8904062e7a268e8d08e33a9067`.
+- ACTUEL — Contrôles applicatifs GitHub verts (`38622654281`) ; cycle de vie
+  YunoHost 12.1.41.2 amd64 réussi (`38622654245`), sans installation client.
+- ACTUEL — Catalogue initial fusionné par PR #10, SHA
+  `6c6e70f111b28dac94080928f69eef35e6972288` ; promotion sélective Oscar réussie
+  via le workflow existant (`38628739041`), canaux development/preview seulement.
+- ACTUEL — Flux raw réellement consommé relu : version et révision conformes.
+  Niveau brut amont 0 conservé ; aucune qualité officielle inventée.
+- ACTUEL — Archives publiées issues du run applicatif vert, avec leurs SHA-256.
+  La copie locale préexistante du catalogue et ses travaux Matos n’ont pas été modifiés.
+
+## À REVALIDER — Réception client
 
 - Domaine, chemin final et version effective du serveur YunoHost ; environnement
   de test et accès nécessaires à la vérification réelle du paquet.

@@ -33,7 +33,8 @@ concurrente de clé, les requêtes Origin malformées et le rendu continu en pau
 - Tableau ludique : des événements plausibles peuvent être fabriqués par un navigateur
   modifié ; aucune garantie de compétition n’est annoncée.
 - La durée 3–5 minutes est une cible de découverte, pas un résultat de panel humain.
-- Le paquet n’a pas été installé sur un serveur YunoHost depuis ce poste.
+- Le cycle du paquet a depuis réussi sur YunoHost Incus GitHub, selon `TEST_REPORT.md` ;
+  le serveur personnel du client n’a pas été modifié.
 - Le logo graphique source n’est pas présent ; la signature ONYX reste textuelle.
 
 Ces limites sont tracées et ne sont pas masquées par les résultats de tests.

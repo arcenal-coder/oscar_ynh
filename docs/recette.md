@@ -1,7 +1,8 @@
 # Recette V1 — 14 octobre 2026
 
-Statut : V1 applicative réalisée et vérifiée localement ; paquet YunoHost candidat
-fourni, installation et cycle de vie sur serveur réel non vérifiés.
+Statut : V1 réalisée, vérifiée localement puis qualifiée sur une instance YunoHost
+Incus GitHub et publiée en preview ARCenal Store. Preuves et révisions exactes :
+`TEST_REPORT.md`. Le serveur personnel du client n’a pas été modifié.
 
 ## Environnement et mandat
 
@@ -73,16 +74,24 @@ de redessin continu pendant la pause.
    rendu lourd ; test de pause et parcours rejoués après correction.
 6. En-tête Origin malformé : refus explicite plutôt qu’exception serveur.
 
-## Vérifications restant dépendantes du serveur
+## Complément de qualification GitHub
 
-- Installation à la racine et dans `/oscar`, permissions publiques en navigation privée.
-- Nginx effectif, systemd, service loopback et configuration HTTPS de l’instance.
-- Mise à jour, suppression normale/purge, sauvegarde et restauration complètes.
+Le cycle de vie a depuis été exécuté sur YunoHost 12.1.41.2 amd64 : racine,
+sous-chemin, multi-instance, retrait/réinstallation, mise à jour, sauvegarde/
+restauration et changement d’URL réussis. Preuve :
+https://github.com/arcenal-coder/oscar_ynh/actions/runs/38622654245
+
+Les contrôles applicatifs et la livraison extraite sont également réussis sur GitHub :
+https://github.com/arcenal-coder/oscar_ynh/actions/runs/38622654281
+
+## Vérifications restant dépendantes de l’instance du client
+
+- Installation et configuration HTTPS sur son domaine final.
 - Conservation réelle et rotation des sauvegardes et journaux serveur.
 - Domaine public, aperçu LinkedIn réel et publication du lien.
 
-Le backup SQLite lui-même est testé par la commande de gestion, mais cela ne
-constitue pas une preuve de restauration du paquet YunoHost complet.
+Le cycle complet du paquet est maintenant vérifié en CI ; sa transposition sur
+l’instance personnelle du client reste à réceptionner.
 
 ## Livrables
 
@@ -94,5 +103,6 @@ constitue pas une preuve de restauration du paquet YunoHost complet.
 - Captures et traces locales dans `test-results/`, non versionnées ; les résultats
   de test sont séparés des données de la prévisualisation.
 
-Conclusion : livrable applicatif V1 local disponible. Ne pas qualifier cette
-livraison de « déployée sur YunoHost » ni de « recette humaine acceptée ».
+Conclusion : V1 publiée en preview, installable depuis ARCenal Store, qualification
+YunoHost isolée réussie. Ne pas qualifier cette livraison d’installée chez le client
+ni de recette humaine acceptée.

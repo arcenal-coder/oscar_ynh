@@ -31,6 +31,7 @@ def main():
         "requirements.txt",
         "README.md",
         "CHANGELOG.md",
+        "TEST_REPORT.md",
         "web",
         "server",
         "scripts",
